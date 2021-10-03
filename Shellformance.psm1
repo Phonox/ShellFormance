@@ -1,0 +1,8 @@
+Import-Module ( Join-Path (Join-Path $PSScriptRoot "Functions") "Test-Performance.ps1" )
+Import-Module ( Join-Path (Join-Path $PSScriptRoot "Functions") "Measure-PerformanceScore.ps1" )
+Import-Module ( Join-Path (Join-Path $PSScriptRoot "Functions") "Export-PerformanceResults.ps1" )
+Import-Module ( Join-Path (Join-Path $PSScriptRoot "Functions") "RunAllTests.ps1" )
+Import-Module ( Join-Path (Join-Path $PSScriptRoot "Functions") "Write-PerformanceToFile.ps1" )
+Import-Module ( Join-Path (Join-Path $PSScriptRoot "Functions") "Timer.ps1" )
+Import-Module ( Join-Path (Join-Path $PSScriptRoot "Functions") "Generate-TestReport.ps1" )
+Update-FormatData -PrependPath ( Join-Path (Join-Path $PSScriptRoot "ps1xml") "TestResults.ps1xml" )

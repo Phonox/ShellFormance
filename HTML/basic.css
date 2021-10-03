@@ -1,0 +1,35 @@
+Body {
+font-family: "Tahoma", "Arial", "Helvetica", sans-serif;
+background-color:white;
+}
+table
+{
+border-collapse:collapse;
+width:60%
+}
+td 
+{
+font-size:12pt;
+border:1px #000000 solid;
+padding:5px 5px 5px 5px;
+}
+
+tr:nth-child(odd) {background-color:lightgray}
+th 
+{
+font-size:14pt;
+text-align:left;
+padding-top:5px;
+padding-bottom:4px;
+background-color:#ff6d6df8;
+color:#FFFFFF;
+}
+name tr
+{
+color:#000000;
+background-color:#0000FF;
+}
+H2{
+    text-align: center;
+    width: 60%;
+}
