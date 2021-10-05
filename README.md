@@ -11,6 +11,9 @@ It is more important how, what, why you need to write code in a certain way.
 
 And the reason why i made a function/wrapper for measure-object command(not impossible to switch to something else), it looks more tidy, because i want it to be more repeatable AND to add more meta such as which PSVersion, PC/Mac/Linux as you want to know how code performs on these places as everyone is not using the best and latest, if that is the case per say.
 
+## Results of these test
+[Read summary](/Docs/index.md)
+
 ## Contribute
 
 Any contribution is welcome.
