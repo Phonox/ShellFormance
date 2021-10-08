@@ -1,0 +1,5 @@
+"Name","TotalScore","LowVolume","HighVolume","Assert"
+"Hash[Key]","1.2025","1.1761","1.2354","True"
+"Hash.Key","1.3452","1.5612","1.0753","True"
+"Hash.ContainsKey()","1.3825","1.3765","1.3899","True"
+"Hash.GetEnum","1.4160","1.4602","1.3607","True"

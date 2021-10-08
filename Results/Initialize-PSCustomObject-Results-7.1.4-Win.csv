@@ -1,0 +1,7 @@
+"Name","TotalScore","LowVolume","HighVolume","Assert"
+"NewPSobjCUSTOMHASH","1.0919","1.0881","1.0967","False"
+"NewPSobjHASH","1.6616","2.1764","1.0181","False"
+"CastHash1","2.1280","2.4315","1.7487","False"
+"CastCUSTOMHash1","4.9138","2.4119","8.0411","True"
+"NewPSObj","41.4301","11.4733","78.8762","True"
+"NewPSObjCUSTOM","45.9963","9.3161","91.8466","True"

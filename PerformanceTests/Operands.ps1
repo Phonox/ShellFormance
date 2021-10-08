@@ -1,59 +1,72 @@
 #lets try operands
+$ErrorActionPreference = 'Stop'
+$InformationPreference = "Continue"
+
 $array = 1,3,8,13,21,100,1000,10000,100000
-[system.Collections.arraylist]$tests = foreach ( $loop in $array){
+$tests = @(foreach ( $loop in $array){
     $rand = Get-random -InputObject $loop
     $woopies = 1..$loop
-    $objects = $woopies.count
-    $Bool   = @{ Repeat = $loop ; Assert = $(foreach($null in $woopies) {$true} ) }
-    $Result = @{ Repeat = $loop ; Assert = $(foreach($null in $woopies) { $rand } ) }
-    Test-Performance -Name "SingleObject_IndexOf()"    { $woopies.indexOf($rand) } -Repeat $loop -Assert $(foreach($null in $woopies) { $rand - 1 } ) #
-    #Test-Performance @bool -Name "IF-SingleObject_IndexOf()" { if($woopies.indexOf($rand)){} }   #bool
-    Test-Performance @bool -Name "SingleObject_Contain()"    { $woopies.Contains($rand) } #bool
-    #Test-Performance @bool -Name "IF-SingleObject_Contain()" { if ($woopies.Contains($rand)) {} }#bool
-    Test-Performance @bool -Name SingleObject-Contains    { $woopies -contains $rand }    #bool
-    #Test-Performance @bool -Name IF-SingleObject-Contains { if($woopies -contains $rand){} }     #bool
-    Test-Performance @bool -Name SingleObject-in          { $rand -in $woopies }          #bool
-    #Test-Performance @bool -Name IF-SingleObject-in       { if ($rand -in $woopies ){} }         #bool
-    Test-Performance  -Name SingleObject-NOT-EQ      { -Not ($woopies -eq $rand) } -Repeat $loop -Assert $(foreach($null in $woopies) { $false } )    #bool
-    #Test-Performance @bool -Name IF-SingleObject-NOT-EQ   { if (-Not ( $woopies -eq $rand ) ) {} } #bool
-    Test-Performance @Result -Name SingleObject-EQ          { $woopies -eq $rand }          #result
-    #Test-Performance @Result -Name IF-SingleObject-EQ       { if ($woopies -eq $rand) {} }         #result
-    Test-Performance @Result -Name SingleObject-Match       { $woopies -match "^$rand$" }  #result
-    #Test-Performance @Result -Name IF-SingleObject-Match    { if ($woopies -match "^$rand$") {} }  #result
-    Test-Performance @Result -Name "SingleObject_Hash+init"   { $hash=@{}; foreach($it in $woopies) {$hash[$it] = $it} ; $hash[$rand] } #result
-    #Test-Performance @Result -Name "IF-SingleObject_Hash+init" { $hash=@{}; foreach($it in $woopies) {$hash[$it] = $it} ; if($hash[$rand]){} } #result
-    $hash=@{}; foreach($it in $woopies) {$hash[$it] = $it}
-    Test-Performance @Result -Name SingleObject_PreRenderHash    { $hash[$rand]  } #result
-    #Test-Performance @Result -Name IF-SingleObject_PreRenderHash { if( $hash[$rand]) {} } #result
-    Test-Performance @Result -Name SingleObject_Hash    {$hash=@{}; foreach($it in $woopies) {$hash[$it] = $it}; $hash[$rand] }  #result
-    #Test-Performance @Result -Name IF-SingleObject_Hash {$hash=@{}; foreach($it in $woopies) {$hash[$it] = $it}; if( $hash[$rand]) {} } #result
-}
-$test2 = @( foreach( $loop in $array){
-    $woopies = 1..$loop
-    if ($loop -lt 2) { $round = 1 }
-    else{$round = [int]($loop /3)}
-    $rand = Get-random -InputObject $loop -count $round
-    $objects = $woopies.count
-    #$Result = @{ Assert = $(foreach($null in $woopies) {$rand } ) }
-    $Result = @{ Assert = $rand }
-    #$Bool   = @{ Assert = $(foreach($null in $woopies) {$true} ) }
-    $Bool   = @{ Assert = $true }
-    $TheseTests = @()
-    $TheseTests += Test-Performance @Bool -Name "multipleObject_Contains()" -SB { foreach($r in $rand) { $woopies.contains( $r ) } }
-    $TheseTests += Test-Performance @Bool -Name "multipleObject_Contains"   -SB { foreach($r in $rand) { $woopies -contains $r } }
-    $TheseTests += Test-Performance @Result -Name "multipleObject_Match"    -SB { foreach($r in $rand) { $woopies -match "^$r$" } }
-    $TheseTests += Test-Performance @Result -Name "multipleObject_EQ"       -SB { foreach($r in $rand) { $woopies -eq $r } }
-    $TheseTests += Test-Performance @Result -Name "multipleObject_Hash"     -SB { $hash=@{}; foreach($it in $woopies) {$hash[$it] = $it} ; foreach($r in $rand) { $hash[$r] } }
-    $TheseTests += Test-Performance @Result -Name "multipleObject_MatchJoinedString" -SB { $r = "^$($rand -join "$|^")$" ; $woopies -match $r }
+    #$objects = $woopies.count
+    Write-Information "---- LOOP $loop ----"
+    #$Bool     = @{ Assert = $(foreach($null in $woopies) {$true} ) }
+    $Bool     = @{ Assert = $true }
+    #$BoolN    = @{ Assert = $(foreach($null in $woopies) {$false} ) }
+    $BoolN    = @{ Assert = $false }
+    #$Result   = @{ Assert = $(foreach($null in $woopies) { $rand } ) }
+    $Result   = @{ Assert = $rand }
+    #$ResultM1 = @{ Assert = $(foreach($null in $woopies) { $rand -1 } ) }
+    $ResultM1 = @{ Assert = $rand -1 }
     
-    if ($loop -lt 10000) {
-        # These gets worse at 10k-100k
-        $TheseTests += Test-Performance -Name "multipleObject_IndexOf" -SB { foreach($r in $rand) { $woopies.indexOf($r) } } -Assert $( $rand - 1 )
-        $TheseTests += Test-Performance -Name "multipleObject_In" -SB { foreach($r in $rand) { $r -in $woopies } } @bool
-    }
-    $TheseTests | Add-Member -PassThru -NotePropertyName TimesExec -NotePropertyValue $woopies.count -force
+    $thisTests = @()
+    $thisTests += Test-Performance @ResultM1 -Name "SingleObject_IndexOf()"    { $woopies.indexOf($rand) }  # Result -1
+    #Test-Performance @bool -Name "IF-SingleObject_IndexOf()" { if($woopies.indexOf($rand)){} }   #bool
+    $thisTests += Test-Performance @bool -Name "SingleObject_Contain()"    { $woopies.Contains($rand) } #bool
+    #Test-Performance @bool -Name "IF-SingleObject_Contain()" { if ($woopies.Contains($rand)) {} }#bool
+    $thisTests += Test-Performance @bool -Name SingleObject-Contains    { $woopies -contains $rand }    #bool
+    #Test-Performance @bool -Name IF-SingleObject-Contains { if($woopies -contains $rand){} }     #bool
+    $thisTests += Test-Performance @bool -Name SingleObject-in          { $rand -in $woopies }          #bool
+    #Test-Performance @bool -Name IF-SingleObject-in       { if ($rand -in $woopies ){} }         #bool
+    $thisTests += Test-Performance @BoolN -Name SingleObject-NOT-EQ      { -Not ($woopies -eq $rand) } # -NOT bool
+    #Test-Performance @bool -Name IF-SingleObject-NOT-EQ   { if (-Not ( $woopies -eq $rand ) ) {} } #bool
+    $thisTests += Test-Performance @Result -Name SingleObject-EQ          { $woopies -eq $rand }          #result
+    #Test-Performance @Result -Name IF-SingleObject-EQ       { if ($woopies -eq $rand) {} }         #result
+    $thisTests += Test-Performance @Result -Name SingleObject-Match       { $woopies -match "^$rand$" }  #result
+    #Test-Performance @Result -Name IF-SingleObject-Match    { if ($woopies -match "^$rand$") {} }  #result
+    $thisTests += Test-Performance @Result -Name "SingleObject_Hash+init"   { $hash=@{}; foreach($it in $woopies) {$hash[$it] = $it} ; $hash[$rand] } #result
+    #Test-Performance @Result -Name "IF-SingleObject_Hash+init" { $hash=@{}; foreach($it in $woopies) {$hash[$it] = $it} ; if($hash[$rand]){} } #result
+    
+    $hash=@{}; foreach($it in $woopies) {$hash[$it] = $it}
+    $thisTests += Test-Performance @Result -Name SingleObject_Hash-init    { $hash[$rand]  } #result
+    #Test-Performance @Result -Name IF-SingleObject_PreRenderHash { if( $hash[$rand]) {} } #result
+    $thisTests | Add-Member -Force -NotePropertyName TimesExec -NotePropertyValue $loop -PassThru
 } )
-$tests.AddRange( $test2 )
+# $test2 = @( foreach( $loop in $array){
+#     $woopies = 1..$loop
+#     if ($loop -lt 2) { $round = 1 }
+#     else{$round = [int]($loop /3)}
+#     Write-Information "---- LOOP $loop ----"
+#     $rand = Get-random -InputObject $loop -count $round
+#     $objects = $woopies.count
+#     #$Result = @{ Assert = $(foreach($null in $woopies) {$rand } ) }
+#     $Result = @{ Assert = $rand }
+#     #$Bool   = @{ Assert = $(foreach($null in $woopies) {$true} ) }
+#     $Bool   = @{ Assert = $true }
+#     $TheseTests = @()
+#     $TheseTests += Test-Performance @Bool -Name "multipleObject_Contains()" -SB { foreach($r in $rand) { $woopies.contains( $r ) } }
+#     $TheseTests += Test-Performance @Bool -Name "multipleObject_Contains"   -SB { foreach($r in $rand) { $woopies -contains $r } }
+#     $TheseTests += Test-Performance @Result -Name "multipleObject_Match"    -SB { foreach($r in $rand) { $woopies -match "^$r$" } }
+#     $TheseTests += Test-Performance @Result -Name "multipleObject_EQ"       -SB { foreach($r in $rand) { $woopies -eq $r } }
+#     $TheseTests += Test-Performance @Result -Name "multipleObject_Hash"     -SB { $hash=@{}; foreach($it in $woopies) {$hash[$it] = $it} ; foreach($r in $rand) { $hash[$r] } }
+#     $TheseTests += Test-Performance @Result -Name "multipleObject_MatchJoinedString" -SB { $r = "^$($rand -join "$|^")$" ; $woopies -match $r }
+    
+#     if ($loop -lt 10000) {
+#         # These gets worse at 10k-100k
+#         $TheseTests += Test-Performance -Name "multipleObject_IndexOf" -SB { foreach($r in $rand) { $woopies.indexOf($r) } } -Assert $( $rand - 1 )
+#         $TheseTests += Test-Performance -Name "multipleObject_In" -SB { foreach($r in $rand) { $r -in $woopies } } @bool
+#     }
+#     $TheseTests | Add-Member -PassThru -NotePropertyName TimesExec -NotePropertyValue $woopies.count -force
+# } )
+# $tests.AddRange( $test2 )
 
 $Measure = Measure-PerformanceScore $Tests |Sort-Object TotalScore
 Write-PerformanceToFile -ScriptFilePath $MyInvocation.MyCommand.path -Measure $Measure -AllTests ($Tests|Sort-Object Time)

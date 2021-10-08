@@ -1,0 +1,6 @@
+"Name","TotalScore","LowVolume","HighVolume","Assert"
+"Generic.HashSet","1.0224","1.0000","1.0597","True"
+"Linq-Distinct","2.2933","3.0332","1.0602","True"
+"Select-Object","4.3730","4.3422","4.4242","True"
+"Sort-Object","4.7237","4.8505","4.5125","True"
+"Get-Unique","6.2839","5.5849","7.4490","True"

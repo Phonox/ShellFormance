@@ -124,12 +124,11 @@ Function Set-Timer {
                     ValueFromPipelineByPropertyName,
                     ValueFromRemainingArguments = $false,
                     Position = 2)]
-         [string[]]$ScriptBlock
+         [ScriptBlock]$ScriptBlock
      )
      Begin {
          If (!$Script:StartedTimers) {
              $Script:StartedTimers = @()
-             #"Instansierat"
          }
          if (!$Global:timer) {
              $Global:timer = New-Object timers.timer
@@ -137,10 +136,6 @@ Function Set-Timer {
          }
      }
      Process {
-         #if ( $pscmdlet.ShouldProcess("Target", "Operation") )
-         #{
-         #}
-         #write-host $time
          $ErrorActionPreference = 'Stop'
          $ScriptBlock = [scriptblock]::Create($ScriptBlock)
          if ($PSCmdlet.ParameterSetName -eq "Minutes") {
@@ -164,7 +159,7 @@ Function Set-Timer {
              else { $NewId++ }
          }until($OK)
          
-         $BoolSB = [bool]$ScriptBlock[0]
+         $BoolSB = [bool]$ScriptBlock
          $BoolRemind = [bool]$RemindMeOf
          $action = [scriptblock]::Create(@"
              [datetime]`$now = get-date;
@@ -173,10 +168,7 @@ Function Set-Timer {
                  Write-Host ""
                  Write-Host -ForegroundColor Magenta " <<<---  Time's UP!!!  --->>>  ";
                  if (`$$BoolRemind ) { Write-Host -ForegroundColor Magenta " <<<---  $RemindMeOf  --->>>  ";}
-                 if (`$$BoolSB ) {. {$ScriptBlock} }
-                 #`$wshell = New-Object -ComObject Wscript.Shell
-                 #`$wshell.Popup("`$short - $($RemindMeOf)",0,"Done",0x0)
-                 #Show-MsgBox -Prompt ("IT IS PAST $newTimer`: $RemindMeOf" ) -Title "TIMER $newid" -Icon Exclamation -BoxType OKOnly
+                 if (`$$BoolSB ) {$ScriptBlock}
                  Remove-Timer -id $newid
                  Get-Command Remove-Timer
              }

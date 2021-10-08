@@ -151,10 +151,10 @@ name='test'
 
         # Enter any kind of input, there will be a check by converting to json
         [Parameter(ValueFromPipelineByPropertyName)]
-        $Assert ,
+        $Assert#,
 
         # [Parameter(ValueFromPipelineByPropertyName)] # NEED THIS FEATURE!
-        [int]$Timeout = 0
+        #[int]$Timeout = 0
     )
     Begin{
         $StopWatch = [System.Diagnostics.Stopwatch]::StartNew()
@@ -198,32 +198,25 @@ name='test'
         if ($Repeat -gt 1) {
             $NewSB = [ScriptBlock]::Create( "Foreach(`$ThisUniqueint in 1..$Repeat) { $ScriptBlock }")
         }else{
-            $NewSb = $ScriptBlock
+            $NewSB = $ScriptBlock
         }
-        if (Get-Variable Assert -ea ignore) { $NewSB = [ScriptBlock]::Create( "`$Global:ThisResult = @( $NewSB )") }
+        if ($Timeout) { # does not work as intended. Won't go to host.
+            $NewSB = [ScriptBlock]::Create( "`$ErrorActionPreference = 'Stop';`$null = Set-Timer -minutes $Timeout -RemindMeOf 'Failed - Timedout($timeout minutes) - $Name' -Scriptblock { ajwd90awj ;Throw 'Failed - Timeout($timeout minutes) - $Name' } ; $NewSB" )
+        }
+        if ($PSBoundParameters.Keys.Contains('Assert')) { $NewSB = [ScriptBlock]::Create( "`$Global:ThisResult = @( $NewSB )") }
         
         if ($Samples) {
-            #$Job = Start-Job -scriptblock {
-            #    @( Foreach ($null in 1..$Samples) {
-            #        Measure-Command  -expression $NewSb
-            #    } )
-            #}
-            #wait-job $job -timeout $Timeout
-            #$OutsideArrayList = Receive-job $job
-            #remove-job $job
-            if ($Timeout){Set-Timer -minutes $Timeout -Scriptblock {prompt} }
-                $OutsideArrayList = @( Try{ Foreach ($null in 1..$Samples) {
-                Measure-Command  -expression $NewSb # possible to ctrl-c to go to the next test.. but test cases won't show errors.
-            } }Catch{ throw $_ }
+            $OutsideArrayList = @(
+                Try{
+                    Foreach ($null in 1..$Samples) {
+                        Measure-Command -expression $NewSb # possible to ctrl-c to go to the next test.. but test cases won't show errors.
+                    }
+                }Catch{ throw $_ }
             )
             $Times = $OutsideArrayList | Measure-Object -Minimum -Maximum -Average -Sum -Property Ticks
             $test = [TimeSpan]::FromTicks($Times.Average)
         }else{
-            #$job = Start-Job -scriptblock {Measure-Command $NewSB} InitializationScript
-            #wait-job $job -timeout $Timeout
-            #$test = Receive-job $job
-            #remove-job $job
-            Try{$test = (Measure-Command $NewSB) }catch{ throw $_ } # possible to ctrl-c to go to the next test.. but test cases won't show errors.
+            Try{$test = ( Measure-Command $NewSB) }catch{ throw $_ } # possible to ctrl-c to go to the next test.. but test cases won't show errors.
         }
         if ($isWindows)   { $OS = "Win" }
         elseif ($IsMacOS) { $OS = "Mac" }
@@ -265,7 +258,7 @@ name='test'
             $hash.Total= [TimeSpan]::FromTicks( $Times.Sum )
             $hash.Samples = $Samples
         }
-        If(Get-Variable Assert -ea ignore){
+        If($PSBoundParameters.Keys.Contains('Assert')){
             if ( ($Global:ThisResult |Sort-Object | ConvertTo-Json) -ne ($Assert |Sort-Object | ConvertTo-JSON) ) { Throw "Name failed $Name"}
             $hash.Assert = $true
         }
