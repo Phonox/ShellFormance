@@ -8,8 +8,8 @@
 - 1 is the best score a test can have, nothing can have lower than 1, as that represents best time. Low volume is tests with 'repetitions less than 100' and high is 'repetitions greater or equal to 100' and then calculate the sum of it.
 - If the first test have 1 in score, second place is 2, then it took 2x time to execute or 100% more time.
 ## Best-Loops
-- Full report: [Best-Loops](/Docs/Best-Loops.md)
-- Code: [Best-Loops](/PerformanceTests/Best-Loops.ps1 )
+Full report: [Best-Loops](/Docs/Best-Loops.md)<br/>
+Code: [Best-Loops](/PerformanceTests/Best-Loops.ps1 )
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
 |Foreach(){}|1,0000|1,0000|1,0000|True|Win|
@@ -31,8 +31,8 @@
 |.Foreach({})|14,5938|12,1676|17,6266|True|Mac|
 |lForeach{}|44,6627|53,3286|33,8304|True|Mac|
 ## Best-Null
-- Full report: [Best-Null](/Docs/Best-Null.md)
-- Code: [Best-Null](/PerformanceTests/Best-Null.ps1 )
+Full report: [Best-Null](/Docs/Best-Null.md)<br/>
+Code: [Best-Null](/PerformanceTests/Best-Null.ps1 )
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
 |Null=stuff|1,0327|1,0588|1,0000|False|Win|
@@ -46,8 +46,8 @@
 |StufflOutNull|10,2171|2,5282|19,8283|False|Win|
 |StufflOutNull|12,8581|12,1360|13,7608|True|Mac|
 ## Best-Pipes
-- Full report: [Best-Pipes](/Docs/Best-Pipes.md)
-- Code: [Best-Pipes](/PerformanceTests/Best-Pipes.ps1 )
+Full report: [Best-Pipes](/Docs/Best-Pipes.md)<br/>
+Code: [Best-Pipes](/PerformanceTests/Best-Pipes.ps1 )
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
 |lAnonymousFunc|1,0999|1,0219|1,1975|True|Win|
@@ -69,8 +69,8 @@
 |lForeach{}{}{}|9,7541|15,1249|3,0407|True|Mac|
 |lForeach2.0|21,2291|36,2899|2,4030|True|Mac|
 ## Best-Where-return_1
-- Full report: [Best-Where-return_1](/Docs/Best-Where-return_1.md)
-- Code: [Best-Where-return_1](/PerformanceTests/Best-Where-return_1.ps1 )
+Full report: [Best-Where-return_1](/Docs/Best-Where-return_1.md)<br/>
+Code: [Best-Where-return_1](/PerformanceTests/Best-Where-return_1.ps1 )
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
 |Foreach(){}|1,2197|1,3102|1,1066|True|Win|
@@ -94,8 +94,8 @@
 |lForeach-Obj{}|23,1059|28,7569|16,0422|True|Mac|
 |lWhere-Obj{}|50,9773|72,9454|23,5171|True|Mac|
 ## Best-Where-return_2
-- Full report: [Best-Where-return_2](/Docs/Best-Where-return_2.md)
-- Code: [Best-Where-return_2](/PerformanceTests/Best-Where-return_2.ps1 )
+Full report: [Best-Where-return_2](/Docs/Best-Where-return_2.md)<br/>
+Code: [Best-Where-return_2](/PerformanceTests/Best-Where-return_2.ps1 )
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
 |Foreach(){}2x|1,3880|1,2450|1,5668|True|Win|
@@ -123,8 +123,8 @@
 |.Where{})2x|16,2684|25,0058|5,3465|True|Mac|
 |lWhere-Obj{}|53,9633|50,0235|58,8880|True|Mac|
 ## Call-HashValue
-- Full report: [Call-HashValue](/Docs/Call-HashValue.md)
-- Code: [Call-HashValue](/PerformanceTests/Call-HashValue.ps1 )
+Full report: [Call-HashValue](/Docs/Call-HashValue.md)<br/>
+Code: [Call-HashValue](/PerformanceTests/Call-HashValue.ps1 )
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
 |Hash[Key]|1,2025|1,1761|1,2354|True|Win|
@@ -136,8 +136,8 @@
 |Hash[Key]|5,7324|9,2922|1,2827|True|Mac|
 |Hash.ContainsKey()|11,8478|17,9867|4,1742|True|Mac|
 ## Initialize-ArraysList
-- Full report: [Initialize-ArraysList](/Docs/Initialize-ArraysList.md)
-- Code: [Initialize-ArraysList](/PerformanceTests/Initialize-ArraysList.ps1 )
+Full report: [Initialize-ArraysList](/Docs/Initialize-ArraysList.md)<br/>
+Code: [Initialize-ArraysList](/PerformanceTests/Initialize-ArraysList.ps1 )
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
 |QuickInstanceNEW|1,1054|1,1704|1,0240|False|Win|
@@ -149,8 +149,8 @@
 |NewObject|63,8742|12,0488|128,6559|False|Win|
 |NewObject|204,4009|86,6898|351,5397|True|Mac|
 ## Initialize-Hashtables
-- Full report: [Initialize-Hashtables](/Docs/Initialize-Hashtables.md)
-- Code: [Initialize-Hashtables](/PerformanceTests/Initialize-Hashtables.ps1 )
+Full report: [Initialize-Hashtables](/Docs/Initialize-Hashtables.md)<br/>
+Code: [Initialize-Hashtables](/PerformanceTests/Initialize-Hashtables.ps1 )
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
 |QuickInstance|1,1512|1,1251|1,1838|False|Win|
@@ -172,8 +172,8 @@
 |NEWObjectHash|186,4163|95,1063|300,5539|True|Mac|
 |NEWDictStrStr|431,0536|284,8548|613,8020|True|Mac|
 ## Initialize-PSCustomObject
-- Full report: [Initialize-PSCustomObject](/Docs/Initialize-PSCustomObject.md)
-- Code: [Initialize-PSCustomObject](/PerformanceTests/Initialize-PSCustomObject.ps1 )
+Full report: [Initialize-PSCustomObject](/Docs/Initialize-PSCustomObject.md)<br/>
+Code: [Initialize-PSCustomObject](/PerformanceTests/Initialize-PSCustomObject.ps1 )
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
 |NewPSobjCUSTOMHASH|1,0919|1,0881|1,0967|False|Win|
@@ -189,8 +189,8 @@
 |NewPSObjCUSTOM|110,0066|84,6985|141,6417|True|Mac|
 |NewPSObj|121,1700|82,0704|170,0445|True|Mac|
 ## Operands
-- Full report: [Operands](/Docs/Operands.md)
-- Code: [Operands](/PerformanceTests/Operands.ps1 )
+Full report: [Operands](/Docs/Operands.md)<br/>
+Code: [Operands](/PerformanceTests/Operands.ps1 )
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
 |SingleObject_Hash-init|1,1938|1,3489|1,0000|True|Win|
@@ -203,8 +203,8 @@
 |SingleObject-Match|61,1006|8,6935|126,6094|True|Win|
 |SingleObject_Hash+init|465,5107|8,0216|1037,3721|True|Win|
 ## Select-Unique_Int
-- Full report: [Select-Unique_Int](/Docs/Select-Unique_Int.md)
-- Code: [Select-Unique_Int](/PerformanceTests/Select-Unique_Int.ps1 )
+Full report: [Select-Unique_Int](/Docs/Select-Unique_Int.md)<br/>
+Code: [Select-Unique_Int](/PerformanceTests/Select-Unique_Int.ps1 )
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
 |Generic.HashSet|1,0224|1,0000|1,0597|True|Win|
