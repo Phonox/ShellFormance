@@ -1,10 +1,10 @@
 # Operands
 
-## Index
+## Table of Content
 
-- Description
-- Summary
-- Full report
+- [Description](#description)
+- [Summary](#summary)
+- [Full report](#full-report)
 
 ## Description
 

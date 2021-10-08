@@ -1,5 +1,20 @@
 # Summary of all tests
 
+## Table of Content
+
+- [Information](#information)
+- [Best-Loops](#best-loops)
+- [Best-Null](#best-null)
+- [Best-Pipes](#best-pipes)
+- [Best-Where-return_1](#best-where-return_1)
+- [Best-Where-return_2](#best-where-return_2)
+- [Call-HashValue](#call-hashvalue)
+- [Initialize-ArraysList](#initialize-arrayslist)
+- [Initialize-Hashtables](#initialize-hashtables)
+- [Initialize-PSCustomObject](#initialize-pscustomobject)
+- [Operands](#operands)
+- [Select-Unique_Int](#select-unique_int)
+
 ## Information
 
 - There's little to no explaination to what or why stuff workas as it does.
@@ -9,6 +24,7 @@
 - The score system is relative to lowest to highest time execution of each code.
 - 1 is the best score a test can have, nothing can have lower than 1, as that represents best time. Low volume is tests with 'repetitions less than 100' and high is 'repetitions greater or equal to 100' and then calculate the sum of it.
 - If the first test have 1 in score, second place is 2, then it took 2x time to execute or 100% more time.
+
 
 ## Best-Loops
 
