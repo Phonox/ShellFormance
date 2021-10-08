@@ -14,8 +14,8 @@ Function Generate-TestReport {
         "- Assert feature, is not 100% correct, still WIP. For instance, similar code could return an [hashtable] object vs Dictionary from System.Collections.Generic.Dictionary[String,String].",
         "- This is for now a technical overview how similar code runs differently depending on how you write the code, difference of OS and soon PSVersion.",
         "- As of this moment. All tests have a small body(i.e. very little code that executes)",
-        "- The score system is relative to lowest to highest time execution of each code",
-        "- Best of a test can have is 1(which is 100% of the time), Low volume is repetitions less than 100 and high is greater or equal to 100 and then calculate each score",
+        "- The score system is relative to lowest to highest time execution of each code.",
+        "- 1 is the best score a test can have, nothing can have lower than 1, as that represents best time. Low volume is tests with 'repetitions less than 100' and high is 'repetitions greater or equal to 100' and then calculate the sum of it.",
         "- If the first test have 1 in score, second place is 2, then it took 2x time to execute or 100% more time."
     )
 
@@ -44,10 +44,12 @@ Function Generate-TestReport {
             $MDSummaryTable = ConvertTo-MarkDownTable $CSVSummary
             $MDWholeTable   = ConvertTo-MarkDownTable $CSVWholeReports
 
-            $null = $MDIndex.Add( "## [$File]($( (Resolve-Path -Relative $MDFilePath) -replace '^\.' -replace '\\','/' ))" )
+            $null = $MDIndex.Add( "## $File" )
+            $null = $MDIndex.Add( "Full report: [$File]($( (Resolve-Path -Relative $MDFilePath) -replace '^\.' -replace '\\','/' ))<br/>" )
+            $null = $MDIndex.Add( "Code: [$File]($( (Resolve-Path -Relative "$Pathtests\$file.ps1") -replace '^\.' -replace '\\','/' ) )" )
             $MDIndex.AddRange( $MDSummaryTable )
             #$null = $MDIndex.Add( "" )
-            @("# $file","## Index",'- Description',"- Summary","- Full report",'## Description',"There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.","## Summary",$MDSummaryTable, "## Full report",$MDWholeTable) | Out-File -FilePath $MDFilePath
+            @("# $file","## Index",'- Description',"- Summary","- Full report",'## Description',"There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.<br/>","To find the code: [$File]($( (Resolve-Path -Relative "$Pathtests\$file.ps1") -replace '^\.' -replace '\\','/' ) )","## Summary",$MDSummaryTable, "## Full report",$MDWholeTable) | Out-File -FilePath $MDFilePath
         }
     }
     Out-File -InputObject $MDIndex -FilePath $PathIndex -Force
