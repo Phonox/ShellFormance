@@ -9,7 +9,9 @@ Function Generate-TestReport {
     if ( !(Test-Path $PathDocs)) {$null = New-Item -ItemType Directory $PathDocs -Force}
     $MDIndex = [System.Collections.ArrayList]@(
         "# Summary of all tests"
+        "",
         "## Information",
+        "",
         "- There's little to no explaination to what or why stuff workas as it does.",
         "- Assert feature, is not 100% correct, still WIP. For instance, similar code could return an [hashtable] object vs Dictionary from System.Collections.Generic.Dictionary[String,String].",
         "- This is for now a technical overview how similar code runs differently depending on how you write the code, difference of OS and soon PSVersion.",
@@ -44,12 +46,19 @@ Function Generate-TestReport {
             $MDSummaryTable = ConvertTo-MarkDownTable $CSVSummary
             $MDWholeTable   = ConvertTo-MarkDownTable $CSVWholeReports
 
+            $null = $MDIndex.Add( "" )
             $null = $MDIndex.Add( "## $File" )
-            $null = $MDIndex.Add( "Full report: [$File]($( (Resolve-Path -Relative $MDFilePath) -replace '^\.' -replace '\\','/' ))<br/>" )
-            $null = $MDIndex.Add( "Code: [$File]($( (Resolve-Path -Relative "$Pathtests\$file.ps1") -replace '^\.' -replace '\\','/' ) )" )
+            $null = $MDIndex.Add( "" )
+            $null = $MDIndex.Add( "### Links" )
+            $null = $MDIndex.Add( "" )
+            $null = $MDIndex.Add( "- Full report: [$File.md]($( (Resolve-Path -Relative $MDFilePath) -replace '^\.' -replace '\\','/' ))" )
+            $null = $MDIndex.Add( "- Code: [$File.ps1]($( (Resolve-Path -Relative "$Pathtests\$file.ps1") -replace '^\.' -replace '\\','/' ) )" )
+            $null = $MDIndex.Add( "" )
+            $null = $MDIndex.Add( "### Report" )
+            $null = $MDIndex.Add( "" )
             $MDIndex.AddRange( $MDSummaryTable )
             #$null = $MDIndex.Add( "" )
-            @("# $file","## Index",'- Description',"- Summary","- Full report",'## Description',"There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.<br/>","To find the code: [$File]($( (Resolve-Path -Relative "$Pathtests\$file.ps1") -replace '^\.' -replace '\\','/' ) )","## Summary",$MDSummaryTable, "## Full report",$MDWholeTable) | Out-File -FilePath $MDFilePath
+            @("# $file","","## Index","",'- Description',"- Summary","- Full report","",'## Description',"","- There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.","- To find the code: [$File.ps1]($( (Resolve-Path -Relative "$Pathtests\$file.ps1") -replace '^\.' -replace '\\','/' ) )","","## Summary","",$MDSummaryTable,"","## Full report","",$MDWholeTable) | Out-File -FilePath $MDFilePath
         }
     }
     Out-File -InputObject $MDIndex -FilePath $PathIndex -Force

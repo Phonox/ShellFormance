@@ -1,12 +1,18 @@
 # Operands
+
 ## Index
+
 - Description
 - Summary
 - Full report
+
 ## Description
-There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.<br/>
-To find the code: [Operands](/PerformanceTests/Operands.ps1 )
+
+- There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.
+- To find the code: [Operands.ps1](/PerformanceTests/Operands.ps1 )
+
 ## Summary
+
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
 |SingleObject_Hash-init|1,1938|1,3489|1,0000|True|Win|
@@ -18,7 +24,9 @@ To find the code: [Operands](/PerformanceTests/Operands.ps1 )
 |SingleObject-in|23,3232|1,2557|50,9077|True|Win|
 |SingleObject-Match|61,1006|8,6935|126,6094|True|Win|
 |SingleObject_Hash+init|465,5107|8,0216|1037,3721|True|Win|
+
 ## Full report
+
 |Name|Time|PSVersion|CLR|WorkSet|Total|Assert|TimesExec|Score|OS|
 |---|---|---|---|---|---|---|---|---|---|
 |SingleObject-in|00:00:00.0003040|7.1.4|CoreCLR|0|00:00:00.0003040|True|1|1|Win|

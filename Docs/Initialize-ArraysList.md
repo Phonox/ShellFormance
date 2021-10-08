@@ -1,12 +1,18 @@
 # Initialize-ArraysList
+
 ## Index
+
 - Description
 - Summary
 - Full report
+
 ## Description
-There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.<br/>
-To find the code: [Initialize-ArraysList](/PerformanceTests/Initialize-ArraysList.ps1 )
+
+- There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.
+- To find the code: [Initialize-ArraysList.ps1](/PerformanceTests/Initialize-ArraysList.ps1 )
+
 ## Summary
+
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
 |QuickInstanceNEW|1,1054|1,1704|1,0240|False|Win|
@@ -17,7 +23,9 @@ To find the code: [Initialize-ArraysList](/PerformanceTests/Initialize-ArraysLis
 |QuickInstance|8,5725|10,6838|5,9334|True|Mac|
 |NewObject|63,8742|12,0488|128,6559|False|Win|
 |NewObject|204,4009|86,6898|351,5397|True|Mac|
+
 ## Full report
+
 |Name|Time|TimesExec|PSVersion|CLR|WorkSet|Total|Assert|Max|Min|Samples|Score|OS|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 |QuickInstanceNEW|00:00:00.0001216|1|7.1.4|CoreCLR|4096|00:00:00.0012163|True|00:00:00.0007082|00:00:00.0000440|10|1|Mac|

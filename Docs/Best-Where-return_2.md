@@ -1,12 +1,18 @@
 # Best-Where-return_2
+
 ## Index
+
 - Description
 - Summary
 - Full report
+
 ## Description
-There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.<br/>
-To find the code: [Best-Where-return_2](/PerformanceTests/Best-Where-return_2.ps1 )
+
+- There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.
+- To find the code: [Best-Where-return_2.ps1](/PerformanceTests/Best-Where-return_2.ps1 )
+
 ## Summary
+
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
 |Foreach(){}2x|1,3880|1,2450|1,5668|True|Win|
@@ -33,7 +39,9 @@ To find the code: [Best-Where-return_2](/PerformanceTests/Best-Where-return_2.ps
 |For(){}2x|12,2580|15,2946|8,4623|True|Mac|
 |.Where{})2x|16,2684|25,0058|5,3465|True|Mac|
 |lWhere-Obj{}|53,9633|50,0235|58,8880|True|Mac|
+
 ## Full report
+
 |Name|Time|TimesExec|PSVersion|CLR|WorkSet|Total|Assert|Max|Min|Samples|Score|OS|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 |Foreach(){}2x|00:00:00.0003641|1|7.1.4|CoreCLR|421888|00:00:00.0025484|True|00:00:00.0017139|00:00:00.0001201|7|1|Mac|

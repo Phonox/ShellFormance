@@ -1,12 +1,18 @@
 # Initialize-PSCustomObject
+
 ## Index
+
 - Description
 - Summary
 - Full report
+
 ## Description
-There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.<br/>
-To find the code: [Initialize-PSCustomObject](/PerformanceTests/Initialize-PSCustomObject.ps1 )
+
+- There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.
+- To find the code: [Initialize-PSCustomObject.ps1](/PerformanceTests/Initialize-PSCustomObject.ps1 )
+
 ## Summary
+
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
 |NewPSobjCUSTOMHASH|1,0919|1,0881|1,0967|False|Win|
@@ -21,7 +27,9 @@ To find the code: [Initialize-PSCustomObject](/PerformanceTests/Initialize-PSCus
 |NewPSObjCUSTOM|45,9963|9,3161|91,8466|True|Win|
 |NewPSObjCUSTOM|110,0066|84,6985|141,6417|True|Mac|
 |NewPSObj|121,1700|82,0704|170,0445|True|Mac|
+
 ## Full report
+
 |Name|Time|TimesExec|PSVersion|CLR|WorkSet|Total|Assert|Max|Min|Samples|Score|OS|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 |CastCUSTOMHash1|00:00:00.0003506|1|7.1.4|CoreCLR|4096|00:00:00.0024541|True|00:00:00.0016320|00:00:00.0000993|7|1|Mac|
