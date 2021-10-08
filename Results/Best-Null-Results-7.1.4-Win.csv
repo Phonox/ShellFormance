@@ -1,0 +1,6 @@
+"Name","TotalScore","LowVolume","HighVolume","Assert"
+"Null=stuff","1.0327","1.0588","1.0000","False"
+"[Void]Stuff","1.2482","1.2038","1.3036","False"
+"Stuff*>Null","1.8802","1.3902","2.4927","False"
+"Stuff|OutNull","10.2171","2.5282","19.8283","False"
+"Stuff>Null","2.2787","2.2273","2.3430","False"

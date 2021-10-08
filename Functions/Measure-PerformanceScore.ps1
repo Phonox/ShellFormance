@@ -54,12 +54,12 @@ Do{}While()    2,04909969742399 1,58559036776477 2,62848635949801
             $low  = $_.Group | & { Begin{$int=0}Process{ if ($_.TimesExec -lt 100){$_ ;$int++} } End{if (!$int){1}} }
             $Assert = -Not ( $_.Group.Assert -eq $false )
 
-            [PSCustomObject]@{
+            [PSCustomObject][Ordered]@{
                 PSTypeName = "TestSummary"
-                Name = $_.Name
-                TotalScore = "{0:P0}" -f ( ( $_.Group.Score | Measure-Object -sum ).Sum / ( $_.Group.Score | Measure-Object ).Count )
-                LowVolume  = "{0:P0}" -f ( ( $low.Score     | Measure-Object -sum ).Sum / ( $Low.Score  | Measure-Object ).Count )
-                HighVolume = "{0:P0}" -f ( ( $high.Score    | Measure-Object -sum ).Sum / ( $high.Score | Measure-Object ).Count )
+                Name       = $_.Name
+                TotalScore = "{0:N4}" -f ( ( $_.Group.Score | Measure-Object -sum ).Sum / ( $_.Group.Score | Measure-Object ).Count ) -replace ',','.'
+                LowVolume  = "{0:N4}" -f ( ( $low.Score     | Measure-Object -sum ).Sum / ( $Low.Score     | Measure-Object ).Count ) -replace ',','.'
+                HighVolume = "{0:N4}" -f ( ( $high.Score    | Measure-Object -sum ).Sum / ( $high.Score    | Measure-Object ).Count ) -replace ',','.'
                 Assert = $Assert
             }
         } | Sort-Object TotalScore
