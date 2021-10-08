@@ -22,7 +22,7 @@ Function Generate-TestReport {
     Foreach($file in $TestFiles){
         $Object = Join-Path $PathResult $file
         $AllResultsOfTest = Get-ChildItem $Object*
-        $MDFilePath = (Join-Path $PathDocs "$file.md")
+        $MDFilePath = Join-Path $PathDocs "$file.md"
         # Summary
         $AllSummaries = foreach( $item in $AllResultsOfTest) { if ($item.Name -Cmatch '-Results-'){$item} }
         if ($AllSummaries){ # Make sure there are files.
@@ -44,7 +44,7 @@ Function Generate-TestReport {
             $MDSummaryTable = ConvertTo-MarkDownTable $CSVSummary
             $MDWholeTable   = ConvertTo-MarkDownTable $CSVWholeReports
 
-            $null = $MDIndex.Add( "## [$File]($MDFilePath)" )
+            $null = $MDIndex.Add( "## [$File]($( (Resolve-Path -Relative $MDFilePath) -replace '^\.' -replace '\\','/' ))" )
             $MDIndex.AddRange( $MDSummaryTable )
             #$null = $MDIndex.Add( "" )
             @("# $file","## Index",'- Description',"- Summary","- Full report",'## Description',"There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.","## Summary",$MDSummaryTable, "## Full report",$MDWholeTable) | Out-File -FilePath $MDFilePath
