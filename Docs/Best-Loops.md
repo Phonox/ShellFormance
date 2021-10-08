@@ -1,12 +1,18 @@
 # Best-Loops
-## Index
-- Description
-- Summary
-- Full report
+
+## Table of Content
+
+- [Description](#description)
+- [Summary](#summary)
+- [Full report](#full-report)
+
 ## Description
-There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.<br/>
-To find the code: [Best-Loops](/PerformanceTests/Best-Loops.ps1 )
+
+- There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.
+- To find the code: [Best-Loops.ps1](/PerformanceTests/Best-Loops.ps1 )
+
 ## Summary
+
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
 |Foreach(){}|1,0000|1,0000|1,0000|True|Win|
@@ -27,7 +33,9 @@ To find the code: [Best-Loops](/PerformanceTests/Best-Loops.ps1 )
 |lAnonymusPipeVar|14,3871|23,9059|2,4885|True|Mac|
 |.Foreach({})|14,5938|12,1676|17,6266|True|Mac|
 |lForeach{}|44,6627|53,3286|33,8304|True|Mac|
+
 ## Full report
+
 |Name|Time|TimesExec|PSVersion|CLR|WorkSet|Total|Assert|Max|Min|Samples|Score|OS|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 |Foreach(){}|00:00:00.0000839|1|7.1.4|CoreCLR|0|00:00:00.0005871|True|00:00:00.0004245|00:00:00.0000256|7|1|Win|

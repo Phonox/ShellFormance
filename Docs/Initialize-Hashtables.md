@@ -1,12 +1,18 @@
 # Initialize-Hashtables
-## Index
-- Description
-- Summary
-- Full report
+
+## Table of Content
+
+- [Description](#description)
+- [Summary](#summary)
+- [Full report](#full-report)
+
 ## Description
-There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.<br/>
-To find the code: [Initialize-Hashtables](/PerformanceTests/Initialize-Hashtables.ps1 )
+
+- There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.
+- To find the code: [Initialize-Hashtables.ps1](/PerformanceTests/Initialize-Hashtables.ps1 )
+
 ## Summary
+
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
 |QuickInstance|1,1512|1,1251|1,1838|False|Win|
@@ -27,7 +33,9 @@ To find the code: [Initialize-Hashtables](/PerformanceTests/Initialize-Hashtable
 |NEWDictStrStr|136,7079|39,9453|257,6613|False|Win|
 |NEWObjectHash|186,4163|95,1063|300,5539|True|Mac|
 |NEWDictStrStr|431,0536|284,8548|613,8020|True|Mac|
+
 ## Full report
+
 |Name|Time|TimesExec|PSVersion|CLR|WorkSet|Total|Assert|Max|Min|Samples|Score|OS|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 |QuickInstance|00:00:00.0001710|1|7.1.4|CoreCLR|0|00:00:00.0011967|True|00:00:00.0007568|00:00:00.0000625|7|1|Mac|

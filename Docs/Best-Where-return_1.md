@@ -1,12 +1,18 @@
 # Best-Where-return_1
-## Index
-- Description
-- Summary
-- Full report
+
+## Table of Content
+
+- [Description](#description)
+- [Summary](#summary)
+- [Full report](#full-report)
+
 ## Description
-There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.<br/>
-To find the code: [Best-Where-return_1](/PerformanceTests/Best-Where-return_1.ps1 )
+
+- There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.
+- To find the code: [Best-Where-return_1.ps1](/PerformanceTests/Best-Where-return_1.ps1 )
+
 ## Summary
+
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
 |Foreach(){}|1,2197|1,3102|1,1066|True|Win|
@@ -29,7 +35,9 @@ To find the code: [Best-Where-return_1](/PerformanceTests/Best-Where-return_1.ps
 |Do{}Until()|13,4240|17,9391|7,7800|True|Mac|
 |lForeach-Obj{}|23,1059|28,7569|16,0422|True|Mac|
 |lWhere-Obj{}|50,9773|72,9454|23,5171|True|Mac|
+
 ## Full report
+
 |Name|Time|TimesExec|PSVersion|CLR|WorkSet|Total|Assert|Max|Min|Samples|Score|OS|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 |.Where({})|00:00:00.0000912|1|7.1.4|CoreCLR|0|00:00:00.0006385|True|00:00:00.0004829|00:00:00.0000239|7|1|Win|

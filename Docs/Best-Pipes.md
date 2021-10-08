@@ -1,12 +1,18 @@
 # Best-Pipes
-## Index
-- Description
-- Summary
-- Full report
+
+## Table of Content
+
+- [Description](#description)
+- [Summary](#summary)
+- [Full report](#full-report)
+
 ## Description
-There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.<br/>
-To find the code: [Best-Pipes](/PerformanceTests/Best-Pipes.ps1 )
+
+- There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.
+- To find the code: [Best-Pipes.ps1](/PerformanceTests/Best-Pipes.ps1 )
+
 ## Summary
+
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
 |lAnonymousFunc|1,0999|1,0219|1,1975|True|Win|
@@ -27,7 +33,9 @@ To find the code: [Best-Pipes](/PerformanceTests/Best-Pipes.ps1 )
 |lForeach2.0|8,0426|12,7919|2,1060|True|Win|
 |lForeach{}{}{}|9,7541|15,1249|3,0407|True|Mac|
 |lForeach2.0|21,2291|36,2899|2,4030|True|Mac|
+
 ## Full report
+
 |Name|Time|TimesExec|PSVersion|CLR|WorkSet|Total|Assert|Max|Min|Samples|Score|OS|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 |lAnonymousFunc|00:00:00.0002430|1|7.1.4|CoreCLR|0|00:00:00.0017009|True|00:00:00.0012874|00:00:00.0000615|7|1|Win|

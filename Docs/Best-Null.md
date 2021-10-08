@@ -1,12 +1,18 @@
 # Best-Null
-## Index
-- Description
-- Summary
-- Full report
+
+## Table of Content
+
+- [Description](#description)
+- [Summary](#summary)
+- [Full report](#full-report)
+
 ## Description
-There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.<br/>
-To find the code: [Best-Null](/PerformanceTests/Best-Null.ps1 )
+
+- There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.
+- To find the code: [Best-Null.ps1](/PerformanceTests/Best-Null.ps1 )
+
 ## Summary
+
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
 |Null=stuff|1,0327|1,0588|1,0000|False|Win|
@@ -19,7 +25,9 @@ To find the code: [Best-Null](/PerformanceTests/Best-Null.ps1 )
 |Null=stuff|4,1122|6,2570|1,4313|True|Mac|
 |StufflOutNull|10,2171|2,5282|19,8283|False|Win|
 |StufflOutNull|12,8581|12,1360|13,7608|True|Mac|
+
 ## Full report
+
 |Name|Time|TimesExec|PSVersion|CLR|WorkSet|Total|Assert|Max|Min|Samples|Score|OS|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 |[Void]Stuff|00:00:00.0001001|1|7.1.4|CoreCLR|86016|00:00:00.0010008|True|00:00:00.0005070|00:00:00.0000443|10|1|Mac|

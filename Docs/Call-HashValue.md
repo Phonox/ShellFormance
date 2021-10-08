@@ -1,12 +1,18 @@
 # Call-HashValue
-## Index
-- Description
-- Summary
-- Full report
+
+## Table of Content
+
+- [Description](#description)
+- [Summary](#summary)
+- [Full report](#full-report)
+
 ## Description
-There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.<br/>
-To find the code: [Call-HashValue](/PerformanceTests/Call-HashValue.ps1 )
+
+- There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.
+- To find the code: [Call-HashValue.ps1](/PerformanceTests/Call-HashValue.ps1 )
+
 ## Summary
+
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
 |Hash[Key]|1,2025|1,1761|1,2354|True|Win|
@@ -17,7 +23,9 @@ To find the code: [Call-HashValue](/PerformanceTests/Call-HashValue.ps1 )
 |Hash.GetEnum|4,5692|2,7975|6,7839|True|Mac|
 |Hash[Key]|5,7324|9,2922|1,2827|True|Mac|
 |Hash.ContainsKey()|11,8478|17,9867|4,1742|True|Mac|
+
 ## Full report
+
 |Name|Time|TimesExec|PSVersion|CLR|WorkSet|Total|Assert|Max|Min|Samples|Score|OS|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 |Hash[Key]|00:00:00.0013521|1|7.1.4|CoreCLR|28672|00:00:00.0067604|True|00:00:00.0059889|00:00:00.0001093|5|1|Mac|

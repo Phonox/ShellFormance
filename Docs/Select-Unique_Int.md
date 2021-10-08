@@ -1,12 +1,18 @@
 # Select-Unique_Int
-## Index
-- Description
-- Summary
-- Full report
+
+## Table of Content
+
+- [Description](#description)
+- [Summary](#summary)
+- [Full report](#full-report)
+
 ## Description
-There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.<br/>
-To find the code: [Select-Unique_Int](/PerformanceTests/Select-Unique_Int.ps1 )
+
+- There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.
+- To find the code: [Select-Unique_Int.ps1](/PerformanceTests/Select-Unique_Int.ps1 )
+
 ## Summary
+
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
 |Generic.HashSet|1,0224|1,0000|1,0597|True|Win|
@@ -19,7 +25,9 @@ To find the code: [Select-Unique_Int](/PerformanceTests/Select-Unique_Int.ps1 )
 |Sort-Object|33,9679|6,7524|79,3272|True|Mac|
 |Generic.HashSet|35,1953|1,2615|91,7516|True|Mac|
 |Get-Unique|37,1580|38,6844|34,6141|True|Mac|
+
 ## Full report
+
 |Name|Time|TimesExec|PSVersion|CLR|WorkSet|Total|Assert|Max|Min|Samples|Score|OS|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 |Generic.HashSet|00:00:00.0007113|1|7.1.4|CoreCLR|1155072|00:00:00.0028453|True|00:00:00.0021312|00:00:00.0001097|4|1|Mac|
