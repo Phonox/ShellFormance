@@ -4,8 +4,8 @@
 - Summary
 - Full report
 ## Description
-There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.<br/>
-To find the code: [Initialize-ArraysList](/PerformanceTests/Initialize-ArraysList.ps1 )
+- There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.
+- To find the code: [Initialize-ArraysList.ps1](/PerformanceTests/Initialize-ArraysList.ps1 )
 ## Summary
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|

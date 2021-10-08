@@ -45,11 +45,13 @@ Function Generate-TestReport {
             $MDWholeTable   = ConvertTo-MarkDownTable $CSVWholeReports
 
             $null = $MDIndex.Add( "## $File" )
-            $null = $MDIndex.Add( "Full report: [$File]($( (Resolve-Path -Relative $MDFilePath) -replace '^\.' -replace '\\','/' ))<br/>" )
-            $null = $MDIndex.Add( "Code: [$File]($( (Resolve-Path -Relative "$Pathtests\$file.ps1") -replace '^\.' -replace '\\','/' ) )" )
+            $null = $MDIndex.Add( "### Links" )
+            $null = $MDIndex.Add( "- Full report: [$File.md]($( (Resolve-Path -Relative $MDFilePath) -replace '^\.' -replace '\\','/' ))" )
+            $null = $MDIndex.Add( "- Code: [$File.ps1]($( (Resolve-Path -Relative "$Pathtests\$file.ps1") -replace '^\.' -replace '\\','/' ) )" )
+            $null = $MDIndex.Add( "### Report" )
             $MDIndex.AddRange( $MDSummaryTable )
             #$null = $MDIndex.Add( "" )
-            @("# $file","## Index",'- Description',"- Summary","- Full report",'## Description',"There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.<br/>","To find the code: [$File]($( (Resolve-Path -Relative "$Pathtests\$file.ps1") -replace '^\.' -replace '\\','/' ) )","## Summary",$MDSummaryTable, "## Full report",$MDWholeTable) | Out-File -FilePath $MDFilePath
+            @("# $file","## Index",'- Description',"- Summary","- Full report",'## Description',"- There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.","- To find the code: [$File.ps1]($( (Resolve-Path -Relative "$Pathtests\$file.ps1") -replace '^\.' -replace '\\','/' ) )","## Summary",$MDSummaryTable, "## Full report",$MDWholeTable) | Out-File -FilePath $MDFilePath
         }
     }
     Out-File -InputObject $MDIndex -FilePath $PathIndex -Force

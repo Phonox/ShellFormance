@@ -4,8 +4,8 @@
 - Summary
 - Full report
 ## Description
-There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.<br/>
-To find the code: [Best-Pipes](/PerformanceTests/Best-Pipes.ps1 )
+- There's no explaination to anything yet, to be decided. But this describes how code runs differently and also depending on OS.
+- To find the code: [Best-Pipes.ps1](/PerformanceTests/Best-Pipes.ps1 )
 ## Summary
 |Name|TotalScore|LowVolume|HighVolume|Assert|OS|
 |---|---|---|---|---|---|
